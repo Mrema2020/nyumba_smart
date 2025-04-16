@@ -49,7 +49,7 @@
                 <div class="collapse" id="base">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="components/avatars.html">
+                      <a href="{{ url('all_properties') }}">
                         <span class="sub-item">All properties</span>
                       </a>
                     </li>
@@ -126,6 +126,27 @@
                   <p>Users</p>
                 </a>
               </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#miscellaneous">
+                        <i class="fas fa-layer-group"></i>
+                        <p>Miscellaneous</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="miscellaneous">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ url('property_categories') }}">
+                                    <span class="sub-item">Property category</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="components/buttons.html">
+                                    <span class="sub-item">Property type</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
           </div>
         </div>
