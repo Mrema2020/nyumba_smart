@@ -34,9 +34,9 @@
                 </div>
                 @endif
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4>Property categories</h4>
+                    <h4>Property Types</h4>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
-                        <i class="bi bi-plus-circle me-1"></i> Add Property Category
+                        <i class="bi bi-plus-circle me-1"></i> Add Property Type
                     </button>
                 </div>
 
@@ -46,28 +46,28 @@
                             <thead class="table-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>Property Category</th>
+                                    <th>Property type</th>
                                     <th>Description</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($categories as $category)
+                                @forelse($propertyType as $propertyType)
                                 <tr>
-                                    <td>{{ $category->id }}</td>
-                                    <td>{{ $category->title }}</td>
-                                    <td>{{ $category->description }}</td>
+                                    <td>{{ $propertyType->id }}</td>
+                                    <td>{{ $propertyType->title }}</td>
+                                    <td>{{ $propertyType->description }}</td>
                                     <td>
                                         <a class="btn btn-sm btn-warning editBtn"
                                             href="#"
-                                            data-id="{{ $category->id }}"
-                                            data-title="{{ $category->title }}"
-                                            data-description="{{ $category->description }}"
+                                            data-id="{{ $propertyType->id }}"
+                                            data-title="{{ $propertyType->title }}"
+                                            data-description="{{ $propertyType->description }}"
                                             data-bs-toggle="modal"
                                             data-bs-target="#editCategoryModal">
                                             Edit
                                         </a>
-                                        <a class="btn btn-sm btn-danger" href="{{url('delete_property_category', $category->id)}}" onclick=" return confirm('Are you sure you want to delete ths record?') ">Delete</a>
+                                        <a class="btn btn-sm btn-danger" href="{{url('delete_property_type', $propertyType->id)}}" onclick=" return confirm('Are you sure you want to delete ths property type?') ">Delete</a>
                                     </td>
                                 </tr>
                                 @empty
@@ -84,10 +84,10 @@
             <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form id="categoryForm" method="POST" action="{{ url('add_category') }}">
+                        <form id="categoryForm" method="POST" action="{{ url('add_category_type') }}">
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="addCategoryModalLabel">Add Property Category</h5>
+                                <h5 class="modal-title" id="addCategoryModalLabel">Add Property Type</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -112,7 +112,7 @@
             <!-- Edit Category Modal -->
             <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <form method="POST" action="{{ url('edit_property') }}">
+                    <form method="POST" action="{{ url('edit_property_type') }}">
                         @csrf
                         <input type="hidden" name="id" id="edit-id">
                         <div class="modal-content">

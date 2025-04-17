@@ -140,8 +140,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="components/buttons.html">
+                                <a href="{{ url('view_property_type') }}">
                                     <span class="sub-item">Property type</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('regions') }}">
+                                    <span class="sub-item">Regions</span>
                                 </a>
                             </li>
                         </ul>

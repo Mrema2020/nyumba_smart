@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('user_id');
+            $table->string('user_id')->default(1);
             $table->string('description');
             $table->string('price')->nullable();
             $table->string('category')->nullable();
             $table->string('type')->nullable();
-            $table->string('status')->nullable();
+            $table->string('image')->nullable();
+            $table->string('status')->default('Available');
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->string('region')->nullable();

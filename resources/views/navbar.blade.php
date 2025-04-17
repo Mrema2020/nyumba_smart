@@ -2,12 +2,8 @@
         
         <!-- Navbar Header -->
         <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
-        <div>
-              <h3 class="fw-bold mb-3">Dashboard</h3>
-          
-            </div>
           <div class="container-fluid">
-            <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+            <ul class="navbar-nav topbar-nav ms-md-auto align-items-center" style="padding: 1rem;">
               <li class="nav-item topbar-user dropdown hidden-caret">
                 <a
                   class="dropdown-toggle profile-pic"
