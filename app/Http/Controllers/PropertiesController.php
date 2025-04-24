@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\District;
+use App\Models\Ward;
 use Illuminate\Http\Request;
 use App\Models\PropertiesCategory;
 use App\Models\PropertiesTypes;
@@ -106,6 +108,88 @@ class PropertiesController extends Controller
 
     public function regions(){
         $regions = region::all();
-        return view('miscellaneous.region', compact('regions'));
+        return view('locations.region', compact('regions'));
+    }
+
+    public function add_region(Request $request){
+        $region = new region();
+        $region->name = $request->name;
+        $region->save();
+        return redirect()->back()->with('message', 'Region added successfully');
+    }
+
+    public function edit_region(Request $request){
+        $region = region::find($request->id);
+        $region->name = $request->name;
+        $region->save();
+        return redirect()->back()->with('message', 'Region edited successfully');
+    }
+
+    public function delete_region($id){
+        $region = region::find($id);
+        $region->delete();
+        return redirect()->back()->with('message', 'Region deleted successfully');
+    }
+
+    public function districts(){
+        $regions = region::all();
+        $districts = district::all();
+        return view('locations.districts', compact('regions', 'districts'));
+    }
+
+    public function add_district(Request $request){
+        $district = new district();
+        $district->name = $request->name;
+        $district->region = $request->region;
+        $district->save();
+
+        return redirect()->back()->with('message', 'District added successfully');
+    }
+
+    public function edit_district(Request $request){
+        $district = district::find($request->id);
+        $district->name = $request->name;
+        $district->region = $request->region;
+        $district->save();
+        return redirect()->back()->with('message', 'District edited successfully');
+    }
+
+    public function delete_district($id){
+        $district = district::find($id);
+        $district->delete();
+        return redirect()->back()->with('message', 'District deleted successfully');
+    }
+
+    public function wards(){
+        $regions = region::all();
+        $districts = district::all();
+        $wards = ward::all();
+
+        return view('locations.wards', compact('regions', 'districts', 'wards'));
+
+    }
+
+    public function add_ward(Request $request){
+        $ward = new ward();
+        $ward->name = $request->name;
+        $ward->district = $request->district;
+        $ward->region = $request->region;
+        $ward->save();
+        return redirect()->back()->with('message', 'Ward added successfully');
+    }
+
+    public function edit_ward(Request $request){
+        $ward = ward::find($request->id);
+        $ward->name = $request->name;
+        $ward->district = $request->district;
+        $ward->region = $request->region;
+        $ward->save();
+        return redirect()->back()->with('message', 'Ward edited successfully');
+    }
+
+    public function delete_ward($id){
+        $ward = ward::find($id);
+        $ward->delete();
+        return redirect()->back()->with('message', 'Ward deleted successfully');
     }
 }

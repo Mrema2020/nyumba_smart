@@ -52,9 +52,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php $counter = 0; ?>
                                 @forelse($categories as $category)
+                                        <?php $counter ++; ?>
                                 <tr>
-                                    <td>{{ $category->id }}</td>
+                                    <td>{{ $counter }}</td>
                                     <td>{{ $category->title }}</td>
                                     <td>{{ $category->description }}</td>
                                     <td>
