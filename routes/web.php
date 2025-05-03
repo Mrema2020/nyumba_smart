@@ -1,11 +1,41 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertiesController;
+use App\Http\Controllers\RegisterController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
 Route::get('/', function () {
-    return view('home');
+    return view('auth.login');
 });
+
+Route::view('home', 'home')
+->middleware('auth')
+->name('home');
+
+Route::post('logout', function(){
+    Auth::guard('web')->logout();
+
+    Session::invalidate();
+    Session::regenerateToken();
+
+    return redirect('/');
+
+})->name('logout');
+
+Route::view('register', 'register')->name('register');
+
+Route::post('register', RegisterController::class)->name('register.store');
+
+Route::post('login', LoginController::class)
+->middleware('throttle:5,1')
+->name('login.attempt');
 
 route::get('/all_properties', [PropertiesController::class, 'all_properties']);
 
