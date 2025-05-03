@@ -91,17 +91,17 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="forms/forms.html">
+                      <a href="{{ url('regions') }}">
                         <span class="sub-item">Regions</span>
                       </a>
                     </li>
                     <li>
-                      <a href="forms/forms.html">
+                      <a href="{{ url('districts') }}">
                         <span class="sub-item">Districts</span>
                       </a>
                     </li>
                     <li>
-                      <a href="forms/forms.html">
+                      <a href="{{ url('wards') }}">
                         <span class="sub-item">Ward</span>
                       </a>
                     </li>

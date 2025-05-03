@@ -1,5 +1,5 @@
 <div class="main-header">
-        
+
         <!-- Navbar Header -->
         <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
           <div class="container-fluid">
@@ -20,7 +20,11 @@
                   </div>
                   <span class="profile-username">
                     <span class="op-7">Hi,</span>
+<<<<<<< HEAD
                     <span class="fw-bold">{{ Auth::user()->name }}</span>
+=======
+                    <span class="fw-bold">Elvis</span>
+>>>>>>> b40b475f52ae99d7ae688fdd55907378854c6dc0
                   </span>
                 </a>
                 <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -35,12 +39,22 @@
                           />
                         </div>
                         <div class="u-text">
+<<<<<<< HEAD
                           <h4>{{ Auth::user()->name }}</h4>
                           <p class="text-muted">{{ Auth::user()->email }}</p>
                           <form action="{{ route('logout') }}" method="POST">
                             @csrf
                           <button type="submit" class="btn btn-danger">Logout</button>
                           </form>
+=======
+                          <h4>Elvis</h4>
+                          <p class="text-muted">hello@example.com</p>
+                          <a
+                            href="profile.html"
+                            class="btn btn-xs btn-secondary btn-sm"
+                            >View Profile</a
+                          >
+>>>>>>> b40b475f52ae99d7ae688fdd55907378854c6dc0
                         </div>
                       </div>
                     </li>

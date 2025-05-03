@@ -52,9 +52,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php $counter = 0; ?>
                                 @forelse($propertyType as $propertyType)
+                                        <?php $counter ++; ?>
                                 <tr>
-                                    <td>{{ $propertyType->id }}</td>
+                                    <td>{{ $counter }}</td>
                                     <td>{{ $propertyType->title }}</td>
                                     <td>{{ $propertyType->description }}</td>
                                     <td>
